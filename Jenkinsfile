@@ -35,5 +35,12 @@ pipeline {
                 echo 'Running tests...'
             }
         }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying CreditDebitNote application...'
+                sh 'docker-compose up -d'
+            }
+        }
     }
 }

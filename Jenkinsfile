@@ -15,9 +15,17 @@ pipeline {
             }
         }
 
+        stage('Docker Test') {
+            steps {
+                sh 'docker version'
+                sh 'docker ps'
+            }
+        }
+
         stage('Build') {
             steps {
                 echo 'Building CreditDebitNote application...'
+                sh 'docker compose build'
             }
         }
 
